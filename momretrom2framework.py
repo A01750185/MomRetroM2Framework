@@ -241,6 +241,23 @@ pred3 = modelo3.predict(x_test)
 pred4 = modelo4.predict(x_test)
 pred5 = modelo5.predict(x_test)
 
+"""La siguiente tabla muestra los valores de entrada de las predicciones, el valor real esperado, los resultados de las predicciones y validación del modelo que indica si el valor real esperado es el mismo que el de la predicción. """
+
+pd.set_option('max_columns', None)
+dfEntPred = x_test 
+dfEntPred["Valor Real Esperado"] = y_test
+dfEntPred["Predicción Modelo 1"] = pred1
+dfEntPred["Validación Pred 1"] = np.where(dfEntPred["Valor Real Esperado"] == dfEntPred["Predicción Modelo 1"], "✅" , "❌")        
+dfEntPred["Predicción Modelo 2"] = pred2
+dfEntPred["Validación Pred 2"] = np.where(dfEntPred["Valor Real Esperado"] == dfEntPred["Predicción Modelo 2"], "✅" , "❌")     
+dfEntPred["Predicción Modelo 3"] = pred3
+dfEntPred["Validación Pred 3"] = np.where(dfEntPred["Valor Real Esperado"] == dfEntPred["Predicción Modelo 3"], "✅" , "❌") 
+dfEntPred["Predicción Modelo 4"] = pred4
+dfEntPred["Validación Pred 4"] = np.where(dfEntPred["Valor Real Esperado"] == dfEntPred["Predicción Modelo 4"], "✅" , "❌")  
+dfEntPred["Predicción Modelo 5"] = pred5
+dfEntPred["Validación Pred 5"] = np.where(dfEntPred["Valor Real Esperado"] == dfEntPred["Predicción Modelo 5"], "✅" , "❌")               
+dfEntPred.head()
+
 #Modelo 1
 print('Modelo 1: ')
 print(modelo1.predict_proba([df_x.loc[0]]))
